@@ -5,7 +5,7 @@ from urllib.parse import urlparse, urljoin, unquote
 
 MIN_WORD_COUNT = 1000
 TARGET_PAGE_COUNT = 100
-OUTPUT_DIR = 'downloaded_pages'
+OUTPUT_DIR = '../downloaded_pages'
 INDEX_FILE = 'index.txt'
 
 def fetch_page(url):
@@ -21,7 +21,7 @@ def parse_page(html):
     soup = BeautifulSoup(html, 'lxml')
     html_tag = soup.find('html')
     if html_tag and html_tag.get('lang') == 'ru':
-        text = soup.get_text()
+        text = soup.get_text(separator=' ')
         links = [a.get('href') for a in soup.find_all('a', href=True)]
         return text, links
     return None
