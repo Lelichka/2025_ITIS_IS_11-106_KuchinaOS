@@ -44,7 +44,7 @@ def process_documents(documents, output_directory):
         filtered_tokens = remove_stopwords(lemmatized_tokens)
         processed_docs.append(filtered_tokens)
 
-        file_name = f'processed_doc_{i}.txt'
+        file_name = f'{i}.txt'
         i+=1
 
         with open(os.path.join(output_directory, file_name), 'w', encoding='utf-8') as file:
