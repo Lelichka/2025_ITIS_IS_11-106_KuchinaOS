@@ -19,7 +19,7 @@ def load_documents_from_folder(folder_path):
             with open(os.path.join(folder_path, filename), 'r', encoding='utf-8') as file:
                 tokens = file.read().strip().split()
                 documents[filename] = tokens
-                document_tokens[filename] = len(tokens)
+                document_tokens[filename] = tokens
 
     with open(document_tokens_file, 'w', encoding='utf-8') as f:
         json.dump(document_tokens, f,ensure_ascii=False)

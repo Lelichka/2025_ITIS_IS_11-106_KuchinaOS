@@ -18,7 +18,7 @@ all_documents = set()
 for term, doc_counts in inverted_index.items():
     tf_data[term] = {}
     for doc_id, count in doc_counts:
-        doc_token_count = document_tokens[doc_id]
+        doc_token_count = len(document_tokens[doc_id])
         tf_data[term][doc_id] = count/doc_token_count
         all_documents.add(doc_id)
 
