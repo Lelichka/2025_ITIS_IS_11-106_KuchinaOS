@@ -6,6 +6,10 @@ updated_inverted_index_file = '../updated_inverted_index.json'
 with open(updated_inverted_index_file, 'r', encoding='utf-8') as f:
     inverted_index = json.load(f)
 
+document_tokens_file = "../document_tokens.json"
+with open(document_tokens_file, 'r', encoding='utf-8') as f:
+    document_tokens = json.load(f)
+
 num_documents = 100
 
 # 1. Calculate TF
@@ -14,7 +18,8 @@ all_documents = set()
 for term, doc_counts in inverted_index.items():
     tf_data[term] = {}
     for doc_id, count in doc_counts:
-        tf_data[term][doc_id] = count
+        doc_token_count = document_tokens[doc_id]
+        tf_data[term][doc_id] = count/doc_token_count
         all_documents.add(doc_id)
 
 tf_df_data = {}

@@ -19,7 +19,7 @@ def load_documents(directory):
     return documents
 
 def remove_punctuation(tokens):
-    return [token for token in tokens if re.match(r'^[\wа-яА-ЯёЁ]+$', token)]
+    return [token for token in tokens if re.match(r'^[а-яА-ЯёЁ]+$', token)]
 
 def tokenize(text):
     tokens = nltk.word_tokenize(text, language='russian')

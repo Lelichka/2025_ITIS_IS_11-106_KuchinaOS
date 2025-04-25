@@ -4,6 +4,7 @@ class BooleanSearch:
     def __init__(self, index):
         self.index = index
         self.all_docs = set()
+
         for doc_ids in index.values():
             self.all_docs.update(doc_ids)
 
